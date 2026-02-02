@@ -5,7 +5,7 @@ SetCapsLockState "AlwaysOff"    ; Prevent accidental Caps Lock toggles.
 
 ; This prevents Space from typing a character if you use it with caps.
 #HotIf GetKeyState("CapsLock", "P")
-Space::return 
+*Space::return 
 #HotIf
 
 ; ── WASD layer while Caps Lock is held ──────────────
