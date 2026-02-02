@@ -12,12 +12,12 @@ SetCapsLockState "AlwaysOff"    ; Prevent accidental Caps Lock toggles.
 ; If Space is held, move 5 times. Otherwise, move normally.
 
 
-CapsLock & w::{
+CapsLock & w::
     if GetKeyState("Space", "P")
         Send "{Blind}{Up 5}"
     else
         Send "{Blind}{Up}"
-}
+
 
 CapsLock & a::{
     if GetKeyState("Space", "P")
@@ -50,10 +50,17 @@ CapsLock & l::Send "{)}"    ; )
 
 ; ── Smart Backspace on Caps+H (word if Alt held) ────
 CapsLock & h::{
-    if GetKeyState("Alt", "P")
-        Send "{Blind}^{Backspace}"    ; Ctrl+Backspace
-    else
-        Send "{Blind}{Backspace}"     ; Backspace
+    if GetKeyState("Space", "P") {
+        if GetKeyState("Alt", "P")
+            Send "{Blind}^{Backspace 5}" ; Delete 5 words
+        else
+            Send "{Blind}{Backspace 5}"  ; Delete 5 characters
+    } else {
+        if GetKeyState("Alt", "P")
+            Send "{Blind}^{Backspace}"   ; Delete 1 word
+        else
+            Send "{Blind}{Backspace}"    ; Delete 1 character
+    }
 }
 
 
