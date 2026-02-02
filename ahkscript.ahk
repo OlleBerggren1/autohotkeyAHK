@@ -4,25 +4,50 @@
 SetCapsLockState "AlwaysOff"    ; Prevent accidental Caps Lock toggles.
 
 ; ── WASD layer while Caps Lock is held ──────────────
-CapsLock & w::Send "{Blind}{Up}"
-CapsLock & a::Send "{Blind}{Left}"
-CapsLock & s::Send "{Blind}{Down}"
-CapsLock & d::Send "{Blind}{Right}"
+; If Space is held, move 5 times. Otherwise, move normally.
+
+CapsLock & w::{
+    if GetKeyState("Space", "P")
+        Send "{Blind}{Up 5}"
+    else
+        Send "{Blind}{Up}"
+}
+
+CapsLock & a::{
+    if GetKeyState("Space", "P")
+        Send "{Blind}{Left 5}"
+    else
+        Send "{Blind}{Left}"
+}
+
+CapsLock & s::{
+    if GetKeyState("Space", "P")
+        Send "{Blind}{Down 5}"
+    else
+        Send "{Blind}{Down}"
+}
+
+CapsLock & d::{
+    if GetKeyState("Space", "P")
+        Send "{Blind}{Right 5}"
+    else
+        Send "{Blind}{Right}"
+}
 
 ; ── Bracket layer ───────────────────────────────────
-CapsLock & u::Send "{{}"   ; {
-CapsLock & j::Send "{}}"   ; }
-CapsLock & i::Send "{[}"   ; [
-CapsLock & k::Send "{]}"   ; ]
-CapsLock & o::Send "{(}"   ; (
-CapsLock & l::Send "{)}"   ; )
+CapsLock & u::Send "{{}"    ; {
+CapsLock & j::Send "{}}"    ; }
+CapsLock & i::Send "{[}"    ; [
+CapsLock & k::Send "{]}"    ; ]
+CapsLock & o::Send "{(}"    ; (
+CapsLock & l::Send "{)}"    ; )
 
 ; ── Smart Backspace on Caps+H (word if Alt held) ────
 CapsLock & h::{
     if GetKeyState("Alt", "P")
-        Send "{Blind}^{Backspace}"   ; Ctrl+Backspace
+        Send "{Blind}^{Backspace}"    ; Ctrl+Backspace
     else
-        Send "{Blind}{Backspace}"    ; Backspace
+        Send "{Blind}{Backspace}"     ; Backspace
 }
 
 
