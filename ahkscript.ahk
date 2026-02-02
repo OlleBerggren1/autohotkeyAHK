@@ -12,12 +12,12 @@ SetCapsLockState "AlwaysOff"    ; Prevent accidental Caps Lock toggles.
 ; If Space is held, move 5 times. Otherwise, move normally.
 
 
-CapsLock & w::
+CapsLock & w::{
     if GetKeyState("Space", "P")
         Send "{Blind}{Up 5}"
     else
         Send "{Blind}{Up}"
-
+}
 
 CapsLock & a::{
     if GetKeyState("Space", "P")
