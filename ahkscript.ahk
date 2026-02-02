@@ -3,8 +3,14 @@
 ~Alt::Send "{Blind}{vkE8}"      ; vkE8 = “dummy” key Windows ignores
 SetCapsLockState "AlwaysOff"    ; Prevent accidental Caps Lock toggles.
 
+; This prevents Space from typing a character if you use it with caps.
+#HotIf GetKeyState("CapsLock", "P")
+Space::return 
+#HotIf
+
 ; ── WASD layer while Caps Lock is held ──────────────
 ; If Space is held, move 5 times. Otherwise, move normally.
+
 
 CapsLock & w::{
     if GetKeyState("Space", "P")
