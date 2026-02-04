@@ -41,12 +41,12 @@ CapsLock & d::{
 }
 
 ; ── Bracket layer ───────────────────────────────────
-CapsLock & u::Send "{{}"    ; {
-CapsLock & j::Send "{}}"    ; }
-CapsLock & i::Send "{[}"    ; [
-CapsLock & k::Send "{]}"    ; ]
-CapsLock & o::Send "{(}"    ; (
-CapsLock & l::Send "{)}"    ; )
+CapsLock & u::Send "{Text}{"
+CapsLock & j::Send "{Text}}"
+CapsLock & i::Send "{Text}["
+CapsLock & k::Send "{Text}]"
+CapsLock & o::Send "{Text}("
+CapsLock & l::Send "{Text})"
 
 ; ── Smart Backspace on Caps+H (word if Alt held) ────
 CapsLock & h::{
